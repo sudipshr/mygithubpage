@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">szone</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="user_email">user@domain.com</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="result">result</string>
+
+</resources>
