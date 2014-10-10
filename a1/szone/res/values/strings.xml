@@ -9,5 +9,23 @@
     <string name="login">Login</string>
     <string name="enter_password">Enter Password</string>
     <string name="result">result</string>
+    <string name="forgotPassword">Forgot Password</string>
+    <string name="preference_file_key">com.sudip.MyFile</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="title_activity_main_page">MainPageActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_test">TestActivity</string>
+    
+    <string name="setTime">Set Time</string>
+    <string name="setDate">Set Date</string>
+    <string name="eventName">Enter Event Name</string>
+    
+    <string name="friend">Enter user@domain.com or groupname</string>
+    <string name="addFriend">Add Friend</string>
+    <string name="sendInvite">Send Invite</string>
+    
+    
 
 </resources>

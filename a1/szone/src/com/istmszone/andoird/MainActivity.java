@@ -1,6 +1,7 @@
 package com.istmszone.andoird;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,11 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.istmszone.andoird.mock.AuthenticationService;
+
 public class MainActivity extends Activity {
 	
 	private EditText userEmail = null;
 	private EditText password = null;
-	private Button login, register = null;
+	private Button login, register, forgotPassword = null;
 	
 
 	@Override
@@ -25,6 +28,7 @@ public class MainActivity extends Activity {
 		password = (EditText)findViewById(R.id.editTextPassword);
 		login = (Button)findViewById(R.id.buttonLogin);
 		register = (Button)findViewById(R.id.buttonRegister);
+		forgotPassword = (Button)findViewById(R.id.buttonForgotPassword);
 	}
 
 	@Override
@@ -47,6 +51,48 @@ public class MainActivity extends Activity {
 	}
 	
 	public void login(View view) {
+		
+		if (userEmail == null || password == null){
+			Toast.makeText(getApplicationContext(), "Credentials not provided",
+				      Toast.LENGTH_SHORT).show();
+			
+			Intent intent = new Intent(this, NotificationActivity.class);
+/*		    EditText editText = (EditText) findViewById(R.id.edit_message);
+		    String message = editText.getText().toString();
+		    intent.putExtra(EXTRA_MESSAGE, message);*/
+		    startActivity(intent);
+		}
+		else {
+			
+			boolean loginStatus = AuthenticationService.login(this, this.userEmail.getText().toString(), this.password.getText().toString());
+			
+			Toast.makeText(getApplicationContext(), "Login status: "+loginStatus,
+				      Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent(this, NotificationActivity.class);
+			/*		    EditText editText = (EditText) findViewById(R.id.edit_message);
+					    String message = editText.getText().toString();
+					    intent.putExtra(EXTRA_MESSAGE, message);*/
+					    startActivity(intent);
+		}
+
+	}
+	
+	public void register(View view) {
+		
+		if (userEmail == null || password == null){
+			Toast.makeText(getApplicationContext(), "Credentials not provided",
+				      Toast.LENGTH_SHORT).show();
+		}
+		else {
+			AuthenticationService.register(this, this.userEmail.getText().toString(), this.password.getText().toString());
+			
+			Toast.makeText(getApplicationContext(), "Registration Complete",
+				      Toast.LENGTH_SHORT).show();
+		}
+
+	}
+	
+	public void forgotPassword(View view) {
 		
 		if (userEmail == null){
 			Toast.makeText(getApplicationContext(), "Wrong Credentials",
